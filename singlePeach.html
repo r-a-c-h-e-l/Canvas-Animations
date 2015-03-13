@@ -1,0 +1,342 @@
+<html>
+<head>
+</head>
+<body>
+
+<script>
+var num = 0;
+var increasing = true;
+
+var drawPrincessPeach = function(canvas,num,y) {
+
+  // var canvas1 = document.getElementById("the_canvas");
+  var ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = "white";
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  //hair behind head
+  ctx.beginPath();
+  ctx.moveTo(135 + num,155 + y);
+  ctx.lineTo(115 + num,190 + y);
+  ctx.lineTo(145 + num,190 + y);
+  ctx.lineTo(135 + num,190 + y);
+  ctx.lineTo(115 + num,225 + y);
+  ctx.lineTo(160 + num,225 + y);
+  ctx.fillStyle = "#FFFF47";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(215 + num,155 + y);
+  ctx.lineTo(235 + num,190 + y);
+  ctx.lineTo(205 + num,190 + y);
+  ctx.lineTo(215 + num,190 + y);
+  ctx.lineTo(235 + num,225 + y);
+  ctx.lineTo(190 + num,225 + y);
+  ctx.fillStyle = "#FFFF47";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw circle head
+  ctx.beginPath();
+  ctx.arc(175 + num, 175 + y, 40, 0, Math.PI*2, true);
+  ctx.fillStyle = "#FFDBB8";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+
+  //draw earring L
+  var my_gradientEGemL = ctx.createLinearGradient(136 + num,182 + y,136 + num,194 + y);
+  my_gradientEGemL.addColorStop(0,"#1439A7");
+  my_gradientEGemL.addColorStop(.6,"#66A3FF");
+  my_gradientEGemL.addColorStop(1,"#D1E3FF");
+  ctx.fillStyle= my_gradientEGemL;
+  ctx.beginPath();
+  ctx.arc(136 + num,188 + y,6,0, Math.PI*2,true);
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw earring R
+  var my_gradientEGemR = ctx.createLinearGradient(214 + num,182 + y,214 + num,194 + y);
+  my_gradientEGemR.addColorStop(0,"#1439A7");
+  my_gradientEGemR.addColorStop(.6,"#66A3FF");
+  my_gradientEGemR.addColorStop(1,"#D1E3FF");
+  ctx.fillStyle= my_gradientEGemR;
+  ctx.beginPath();
+  ctx.arc(214 + num,188 + y,6,0, Math.PI*2,true);
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw neck
+  ctx.beginPath();
+  ctx.moveTo(170 + num,155 + y);
+  ctx.lineTo(160 + num,230 + y);
+  ctx.lineTo(190 + num,230 + y);
+  ctx.lineTo(180 + num,155 + y);
+  ctx.fillStyle = "#FFDBB8";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+
+  //draw skirt
+  ctx.beginPath();
+  ctx.moveTo(160 + num,290 + y);
+  ctx.quadraticCurveTo(85 + num,340 + y,95 + num,425 + y);
+  ctx.quadraticCurveTo(175 + num,450 + y,255 + num,425 + y);
+  ctx.quadraticCurveTo(265 + num,340 + y,190 + num,290 + y);
+  ctx.fillStyle = "#FFD1F0";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw upper body counter-clockwise
+  ctx.beginPath();
+  ctx.moveTo(160 + num,230 + y);
+  ctx.quadraticCurveTo(130 + num,230 + y,160 + num,290 + y);
+  ctx.quadraticCurveTo(175 + num,310 + y,190 + num,290 + y);
+  ctx.quadraticCurveTo(220 + num,230 + y,190 + num,230 + y);
+  ctx.fillStyle = "#FFD1F0";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw collar
+  ctx.beginPath();
+  ctx.moveTo(162 + num,215 + y);
+  ctx.quadraticCurveTo(175 + num,225 + y,188 + num,215 + y);
+  ctx.lineTo(190 + num,230 + y);
+  ctx.quadraticCurveTo(175 + num,240 + y,160 + num,230 + y);
+  ctx.fillStyle = "#FFA3C2";
+  ctx.globalAlpha = .7;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw gem
+  // ctx.fillStyle = "#0000FF";
+  var my_gradientGem = ctx.createLinearGradient(175 + num,237 + y,175 + num,253 + y);
+  my_gradientGem.addColorStop(0,"#1439A7");
+  my_gradientGem.addColorStop(.6,"#66A3FF");
+  my_gradientGem.addColorStop(1,"#D1E3FF");
+  ctx.fillStyle= my_gradientGem;
+  ctx.beginPath();
+  ctx.moveTo(175 + num,237 + y);
+  ctx.quadraticCurveTo(169 + num,237 + y,169 + num,244 + y);
+  ctx.quadraticCurveTo(169 + num,257 + y,175 + num,257 + y);
+  ctx.quadraticCurveTo(181 + num,257 + y,181 + num,244 + y);
+  ctx.quadraticCurveTo(181 + num,237 + y,175 + num,237 + y);
+  // ctx.arc(175, 245, 8, 0, Math.PI*2, true);
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw bustle L
+  ctx.beginPath();
+  ctx.moveTo(175 + num,307 + y);
+  ctx.quadraticCurveTo(170 + num,300 + y,160 + num,290 + y);
+  ctx.quadraticCurveTo(123 + num,305 + y,106 + num,346 + y);
+  ctx.quadraticCurveTo(165 + num,360 + y,175 + num,307 + y);
+  ctx.fillStyle = "#FFA3C2";
+  ctx.globalAlpha = .7;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw bustle R
+  ctx.beginPath();
+  ctx.moveTo(175 + num,307 + y);
+  ctx.quadraticCurveTo(180 + num,300 + y,190 + num,290 + y);
+  ctx.quadraticCurveTo(227 + num,305 + y,244 + num,346 + y);
+  ctx.quadraticCurveTo(185 + num,360 + y,175 + num,307 + y);
+  ctx.fillStyle = "#FFA3C2";
+  ctx.globalAlpha = .7;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw arm L
+  ctx.beginPath();
+  ctx.moveTo(130 + num,250 + y);
+  ctx.lineTo(115 + num,310 + y);
+  ctx.lineTo(130 + num,306 + y);
+  ctx.lineTo(145 + num,250 + y);
+  ctx.fillStyle = "#FFDBB8";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw arm R
+  ctx.beginPath();
+  ctx.moveTo(220 + num,250 + y);
+  ctx.lineTo(235 + num,310 + y);
+  ctx.lineTo(220 + num,306 + y);
+  ctx.lineTo(205 + num,250 + y);
+  ctx.fillStyle = "#FFDBB8";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw glove L
+  ctx.beginPath();
+  ctx.moveTo(141 + num,270 + y);
+  ctx.quadraticCurveTo(135 + num,270 + y,130 + num,275 + y);
+  ctx.lineTo(125 + num,270 + y);
+  ctx.lineTo(118 + num,298 + y);
+  ctx.quadraticCurveTo(105 + num,305 + y,115 + num,320 + y);
+  ctx.quadraticCurveTo(123 + num,318 + y,125 + num,310 + y);
+  ctx.quadraticCurveTo(125 + num,312 + y,128 + num,315 + y);
+  ctx.quadraticCurveTo(132 + num,306 + y,130 + num,304 + y);
+  ctx.lineTo(141 + num,270 + y);
+  ctx.fillStyle = "#FFFFFF";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //draw glove R
+  ctx.beginPath();
+  ctx.moveTo(209 + num,270 + y);
+  ctx.quadraticCurveTo(213 + num,270 + y,218 + num,275 + y);
+  ctx.lineTo(225 + num,270 + y);
+  ctx.lineTo(232 + num,298 + y);
+  ctx.quadraticCurveTo(245 + num,305 + y,235 + num,320 + y);
+  ctx.quadraticCurveTo(227 + num,318 + y,225 + num,310 + y);
+  ctx.quadraticCurveTo(225 + num,312 + y,222 + num,315 + y);
+  ctx.quadraticCurveTo(218 + num,306 + y,220 + num,304 + y);
+  ctx.lineTo(209 + num,270 + y);
+  ctx.fillStyle = "#FFFFFF";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //circle sleeves
+  ctx.beginPath();
+  ctx.arc(138 + num, 240 + y, 14, 0, Math.PI*2, true);
+  ctx.fillStyle = "#FFD1F0";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(212 + num, 240 + y, 14, 0, Math.PI*2, true);
+  ctx.fillStyle = "#FFD1F0";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+
+  //draw eyes
+  ctx.beginPath();
+  ctx.arc(190 + num, 170 + y, 7, 0, Math.PI*2, true);
+  ctx.fillStyle = "#000000";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(160 + num, 170 + y, 7, 0, Math.PI*2, true);
+  ctx.fillStyle = "#000000";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+
+  //draw hair
+  ctx.beginPath();
+  ctx.arc(175 + num, 160 + y, 50, 0, Math.PI, true);
+  ctx.fillStyle = "#FFFF47";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+  ctx.stroke();
+
+  //eyelash inside L
+  ctx.beginPath();
+  ctx.moveTo(160 + num,170 + y);
+  ctx.lineTo(150 + num,160 + y);
+  ctx.lineTo(152 + num,158 + y);
+  ctx.fillStyle = "#000000";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+
+  //eyelash outside L
+  ctx.beginPath();
+  ctx.moveTo(160 + num,170 + y);
+  ctx.lineTo(144 + num,165 + y);
+  ctx.lineTo(146 + num,163 + y);
+  ctx.fillStyle = "#000000";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+
+  //eyelash inside R
+  ctx.beginPath();
+  ctx.moveTo(190 + num,170 + y);
+  ctx.lineTo(200 + num,160 + y);
+  ctx.lineTo(198 + num,158 + y);
+  ctx.fillStyle = "#000000";
+  ctx.fill();
+
+  //eyelash outside R
+  ctx.beginPath();
+  ctx.moveTo(190 + num,170 + y);
+  ctx.lineTo(206 + num,165 + y);
+  ctx.lineTo(204 + num,163 + y);
+  ctx.fillStyle = "#000000";
+  ctx.fill();
+
+  //draw mouth
+  ctx.beginPath();
+  ctx.arc(175 + num, 185 + y, 7, 0, Math.PI, false);
+  ctx.fillStyle = "#FFB8B8";
+  ctx.globalAlpha = 1;
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(168 + num,185 + y);
+  ctx.quadraticCurveTo(175 + num,192 + y,182 + num,185 + y);
+  ctx.fillStyle = "#000000";
+  ctx.globalAplpha = .2;
+  ctx.stroke();
+
+};
+
+
+var generateCanvas = function() {
+  var body = document.querySelector("body");
+  var canvas = document.createElement("canvas");
+  canvas.setAttribute("id","the_canvas");
+  canvas.setAttribute("width","2000");
+  canvas.setAttribute("height","1500");
+
+  body.appendChild(canvas);
+  return canvas;
+}
+
+var moveXBackForth = function() {
+  var canvas = document.getElementById("the_canvas");
+  if ( num >= canvas.width-258)  {
+    increasing = false;
+  } else if (num <= -85) {
+    increasing = true;
+  }
+  if ( increasing === true) {
+    num++;
+  } else if (increasing === false){
+    num--;
+  }
+  return num;
+};
+
+var canvas1 = generateCanvas();
+
+var animate = function() {
+  var x = moveXBackForth();
+  drawPrincessPeach(canvas1,x,0);
+}
+
+
+setInterval(animate,5);
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
